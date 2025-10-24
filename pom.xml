@@ -7,7 +7,7 @@
 
     <groupId>dev.maxalt</groupId>
     <artifactId>simpleforex</artifactId>
-    <version>1.0.0-dev</version>
+    <version>0.1.0</version>
 
     <name>SimpleForex</name>
     <description>A simple library of forex model classes for modern Java</description>
