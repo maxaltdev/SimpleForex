@@ -40,30 +40,27 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.Currency;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CurrencyPairTests {
 
     @Nested
-    class InvolvesCurrency {
+    class Involves {
 
         @ParameterizedTest
         @ValueSource(strings = {"USD", "EUR"})
-        void involvesReturnsTrueOnInvolvedCurrency(Currency currency) {
+        void returnsTrueOnInvolvedCurrency(Currency currency) {
             var pair = CurrencyPair.fromIsoCodes("USD", "EUR");
 
-            assertTrue(pair.involves(currency));
+            assertThat(pair.involves(currency)).isTrue();
         }
 
         @ParameterizedTest
         @NullSource
         @ValueSource(strings = {"JPY", "KRW", "RUB", "PLN", "BYN", "CAD", "GBP"})
-        void involvesReturnsFalseOnUninvolvedCurrency(Currency currency) {
+        void returnsFalseOnUninvolvedCurrency(Currency currency) {
             var pair = CurrencyPair.fromIsoCodes("USD", "EUR");
 
-            assertFalse(pair.involves(currency));
+            assertThat(pair.involves(currency)).isFalse();
         }
     }
 
@@ -99,10 +96,10 @@ class CurrencyPairTests {
                 "CAD,AUD,CADAUD",
                 "USD,CNY,USDCNY"
         })
-        void toStringReturnsExpectedFormat(Currency base, Currency quote, String expectedString) {
+        void toStringReturnsExpectedFormat(Currency base, Currency quote, String expected) {
             var pair = new CurrencyPair(base, quote);
 
-            assertEquals(expectedString, pair.toString());
+            assertThat(pair.toString()).isEqualTo(expected);
         }
 
         // TODO: unit tests for parse(String) static factory method (after it's added)
