@@ -94,16 +94,13 @@ public record CurrencyPair(Currency base, Currency quote) {
 
     /// Returns the position of the given currency within this pair.
     ///
-    /// If you think of this [CurrencyPair] as a [java.util.List] of two elements, this method is conceptually identical to `List.indexOf(obj)`.
+    /// If you think of this [CurrencyPair] as a [java.util.List] of two elements, this method is conceptually identical to `list.indexOf(obj)`.
     ///
     /// Since the word "index" has a domain-specific meaning in the context of currencies, this method is not called `indexOf` to avoid confusions.
     ///
     /// @param currency an arbitrary currency, `null` is allowed
     /// @return `0` if `currency` is the base, `1` if `currency` is the quote, `empty` if neither or it's `null`
     public OptionalInt positionOf(@Nullable Currency currency) {
-        if (currency == null) {
-            return OptionalInt.empty();
-        }
         if (base.equals(currency)) {
             return OptionalInt.of(0);
         }
