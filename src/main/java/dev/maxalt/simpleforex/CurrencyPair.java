@@ -34,6 +34,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.Currency;
 import java.util.Objects;
+import java.util.OptionalInt;
 
 /// A [pair of currencies](https://en.wikipedia.org/wiki/Currency_pair) in an exchange.
 ///
@@ -89,6 +90,27 @@ public record CurrencyPair(Currency base, Currency quote) {
     /// @return `true` if the given currency is either the base or the quote, `false` if not or it is `null`
     public boolean involves(@Nullable Currency currency) {
         return base.equals(currency) || quote.equals(currency);
+    }
+
+    /// Returns the position of the given currency within this pair.
+    ///
+    /// If you think of this [CurrencyPair] as a [java.util.List] of two elements, this method is conceptually identical to `List.indexOf(obj)`.
+    ///
+    /// Since the word "index" has a domain-specific meaning in the context of currencies, this method is not called `indexOf` to avoid confusions.
+    ///
+    /// @param currency an arbitrary currency, `null` is allowed
+    /// @return `0` if `currency` is the base, `1` if `currency` is the quote, `empty` if neither or it's `null`
+    public OptionalInt positionOf(@Nullable Currency currency) {
+        if (currency == null) {
+            return OptionalInt.empty();
+        }
+        if (base.equals(currency)) {
+            return OptionalInt.of(0);
+        }
+        if (quote.equals(currency)) {
+            return OptionalInt.of(1);
+        }
+        return OptionalInt.empty();
     }
 
     /// Formats this pair to a concatenation of its currency codes, such as `EURUSD` or `USDJPY`.

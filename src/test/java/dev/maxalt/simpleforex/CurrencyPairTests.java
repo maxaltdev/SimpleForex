@@ -39,6 +39,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Currency;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -63,6 +64,27 @@ class CurrencyPairTests {
             var pair = CurrencyPair.fromIsoCodes("USD", "EUR");
 
             assertFalse(pair.involves(currency));
+        }
+    }
+
+    @Nested
+    class PositionOf {
+
+        @ParameterizedTest
+        @CsvSource({"XTS,0", "GBP,1"})
+        void returnsExpectedIntOnInvolvedCurrency(Currency currency, int expected) {
+            var pair = CurrencyPair.fromIsoCodes("XTS", "GBP");
+
+            assertThat(pair.positionOf(currency)).hasValue(expected);
+        }
+
+        @ParameterizedTest
+        @NullSource
+        @ValueSource(strings = {"USD", "ILS", "RUB", "EUR", "XAU"})
+        void returnsEmptyOnUninvolvedCurrency(Currency currency) {
+            var pair = CurrencyPair.fromIsoCodes("XTS", "GBP");
+
+            assertThat(pair.positionOf(currency)).isEmpty();
         }
     }
 
