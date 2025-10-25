@@ -17,6 +17,7 @@
         <jspecify.version>1.0.0</jspecify.version>
         <junit.version>6.0.0</junit.version>
         <equalsverifier.version>4.2</equalsverifier.version>
+        <assertj.version>3.27.3</assertj.version>
 
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -46,6 +47,12 @@
             <groupId>nl.jqno.equalsverifier</groupId>
             <artifactId>equalsverifier</artifactId>
             <version>${equalsverifier.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
