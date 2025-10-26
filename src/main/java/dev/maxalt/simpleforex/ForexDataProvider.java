@@ -58,10 +58,11 @@ public interface ForexDataProvider {
 
     /// Fetches exchange rates of specific currency pairs within a specific date range (if available)
     ///
-    /// The returned dataset might not fully match the given criteria. See [#exchangeRates(Set, LocalDate)] for more info.
+    /// The returned dataset might not fully match the given criteria.
+    /// See the [single-date `exchangeRates()` method][#exchangeRates(Set, LocalDate)] Javadoc for more info.
     ///
     /// The order of the dates does not matter. Given dates `x` and `y`, specifying the range as `x,y` or `y,x` is treated identically.
-    /// If the dates are equal, it's equivalent to calling [#exchangeRates(Set, LocalDate)].
+    /// If the dates are equal, calling this is equivalent to calling the [single-date `exchangeRates()` method][#exchangeRates(Set, LocalDate)].
     ///
     /// @param pairs the currency pairs you want exchange rates for *(this set is defensively copied)*
     /// @param start range start date, inclusive
