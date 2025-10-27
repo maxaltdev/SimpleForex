@@ -5,9 +5,10 @@ It provides model classes for basic forex concepts and easy ways to fetch data f
 
 Here's what makes this library good:
 
-1. It's modern (latest Java features, conventions, best practices, etc.)
-2. It follows KISS
-3. Minimal 3rd party dependencies in favor of JDK stuff
+1. Modern (latest Java features, conventions, best practices, etc.)
+2. Mostly functional-style API (`Stream`, `Optional`, immutability by default, etc.)
+3. Follows KISS
+4. Minimal 3rd party dependencies
 
 ## Usage examples
 
