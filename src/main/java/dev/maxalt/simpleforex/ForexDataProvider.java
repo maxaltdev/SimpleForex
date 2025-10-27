@@ -37,7 +37,7 @@ import java.util.stream.Stream;
 
 /// An abstract provider of currency and exchange rate data.
 ///
-/// @apiNote Stream-returning methods follow the JDK's "plural noun" [de-facto naming convention](https://stackoverflow.com/a/28805669).
+/// Note: [Stream]-returning methods follow the JDK's "plural noun" [de-facto naming convention](https://stackoverflow.com/a/28805669).
 @NullMarked
 public interface ForexDataProvider {
 
