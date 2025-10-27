@@ -20,6 +20,14 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>Maxim Altoukhov</name>
+            <email>foss@maxalt.dev</email>
+            <organizationUrl>https://github.com/maxaltdev</organizationUrl>
+        </developer>
+    </developers>
+
     <properties>
         <java.version>25</java.version>
         <jspecify.version>1.0.0</jspecify.version>
