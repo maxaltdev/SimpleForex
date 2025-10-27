@@ -11,6 +11,7 @@
 
     <name>SimpleForex</name>
     <description>Simple Java library for exchange rate data</description>
+    <url>https://github.com/maxaltdev/SimpleForex</url>
 
     <properties>
         <java.version>25</java.version>
