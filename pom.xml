@@ -28,6 +28,12 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:git://github.com/maxaltdev/SimpleForex.git</connection>
+        <developerConnection>scm:git:ssh://github.com:maxaltdev/SimpleForex.git</developerConnection>
+        <url>https://github.com/maxaltdev/SimpleForex</url>
+    </scm>
+
     <properties>
         <java.version>25</java.version>
         <jspecify.version>1.0.0</jspecify.version>
