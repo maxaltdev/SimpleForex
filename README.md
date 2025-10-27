@@ -15,7 +15,15 @@ Here's what makes this library good:
 
 ## Installation
 
-*coming soon: Maven coordinates*
+Maven coordinates:
+
+```xml
+<dependency>
+    <groupId>dev.maxalt</groupId>
+    <artifactId>simpleforex</artifactId>
+    <version>0.2.0</version>
+</dependency>
+```
 
 ## License
 
