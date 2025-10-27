@@ -13,6 +13,13 @@
     <description>Simple Java library for exchange rate data</description>
     <url>https://github.com/maxaltdev/SimpleForex</url>
 
+    <licenses>
+        <license>
+            <name>BSD 3-Clause License</name>
+            <url>https://opensource.org/licenses/BSD-3-Clause</url>
+        </license>
+    </licenses>
+
     <properties>
         <java.version>25</java.version>
         <jspecify.version>1.0.0</jspecify.version>
