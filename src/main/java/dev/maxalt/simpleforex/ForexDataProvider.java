@@ -32,6 +32,7 @@ package dev.maxalt.simpleforex;
 import org.jspecify.annotations.NullMarked;
 
 import java.time.LocalDate;
+import java.util.Currency;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -71,7 +72,12 @@ public interface ForexDataProvider {
     /// @throws NullPointerException if an argument is `null` or contains `null`
     Stream<ExchangeRate> exchangeRates(Set<CurrencyPair> pairs, LocalDate start, LocalDate end);
 
-    // TODO: supportedCurrencies()
+    /// Returns all currencies supported by this provider.
+    ///
+    /// @return a stream of all supported currencies (neither the stream nor its contents are `null`)
+    default Stream<Currency> supportedCurrencies() {
+        return Currency.availableCurrencies();
+    }
 
     /// Returns the earliest date this provider has exchange rate data for.
     ///
