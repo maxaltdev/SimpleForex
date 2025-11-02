@@ -38,11 +38,10 @@ import java.util.OptionalInt;
 
 /// A [pair of currencies](https://en.wikipedia.org/wiki/Currency_pair) in an exchange.
 ///
-/// Simply put, the *base* currency is the one you're selling, while the *quote* currency is the one you're buying.
-/// An instance of this class will never have identical base and quote currencies.
-///
 /// This is an immutable, value-based class. Use it as you would use [java.time.LocalDate] or [java.util.Optional].
 ///
+/// @param base  the currency that you're *giving* in an exchange (never `null` and never equal to the quote)
+/// @param quote the currency that you're *receiving* in an exchange (never `null` and never equal to the base)
 /// @see Currency
 @NullMarked
 public record CurrencyPair(Currency base, Currency quote) {
