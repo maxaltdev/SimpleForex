@@ -72,4 +72,16 @@ public interface ForexDataProvider {
     Stream<ExchangeRate> exchangeRates(Set<CurrencyPair> pairs, LocalDate start, LocalDate end);
 
     // TODO: supportedCurrencies()
+
+    /// Returns the earliest date this provider has exchange rate data for.
+    ///
+    /// If the implementation doesn't have a specific earliest date, it should return [LocalDate#MIN] to indicate there's no lower boundary.
+    ///
+    /// The purpose of this method is to potentially help developers narrow down the range of valid dates for
+    /// [methods that fetch exchange rates][#exchangeRates(Set, LocalDate)].
+    ///
+    /// @return the earliest supported date (never `null`), or [LocalDate#MIN] if there's no limit
+    default LocalDate getEarliestSupportedDate() {
+        return LocalDate.MIN;
+    }
 }
