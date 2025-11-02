@@ -33,6 +33,7 @@ import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -41,6 +42,13 @@ import java.util.Objects;
 /// This is an immutable, value-based class. Use it as you would use [java.time.LocalDate] or [java.util.Optional].
 @NullMarked
 public record ExchangeRate(CurrencyPair currencyPair, BigDecimal value, Instant timestamp) {
+
+    /// The default rounding mode used by exchange rate arithmetic operations.
+    public static final RoundingMode DEFAULT_ROUNDING_MODE = RoundingMode.HALF_EVEN;
+    // Even though "half-even" is also called "Banker's rounding",
+    // Wikipedia states there is no actual proof of this being standard in the banking industry.
+    // Source: https://en.wikipedia.org/wiki/Rounding#History
+    // It's worth researching what IS standard in the banking/forex industry.
 
     /// Main constructor.
     ///
