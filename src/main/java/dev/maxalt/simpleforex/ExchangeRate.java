@@ -67,6 +67,8 @@ public record ExchangeRate(CurrencyPair currencyPair, BigDecimal value, Instant 
         }
     }
 
+    // TODO: inverse() and inverse(RoundingMode)
+
     // TODO: Override Javadoc for equals and hashCode, documenting how they ignore scale
 
     @Override
