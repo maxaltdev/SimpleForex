@@ -33,6 +33,7 @@ import org.jspecify.annotations.NullMarked;
 
 import java.time.LocalDate;
 import java.util.Currency;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -71,6 +72,14 @@ public interface ForexDataProvider {
     /// @return a stream of exchange rates that match the criteria, or an empty stream if none do
     /// @throws NullPointerException if an argument is `null` or contains `null`
     Stream<ExchangeRate> exchangeRates(Set<CurrencyPair> pairs, LocalDate start, LocalDate end);
+
+    /// Finds the exchange rate of the given currency pair on the given date (if available).
+    ///
+    /// @param pair the currency pair you want the exchange rate of
+    /// @param date the date of the currency exchange
+    /// @return an `Optional` with an exchange rate if one was found, an empty `Optional` otherwise
+    /// @throws NullPointerException if either argument is `null`
+    Optional<ExchangeRate> findExchangeRate(CurrencyPair pair, LocalDate date);
 
     /// Returns all currencies supported by this provider.
     ///
