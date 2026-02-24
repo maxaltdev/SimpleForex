@@ -1,6 +1,6 @@
 // BSD 3-Clause License
 //
-// Copyright (c) 2025, Maxim Altoukhov
+// Copyright (c) 2025-2026 Maxim Altoukhov
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
@@ -72,6 +72,12 @@ public record CurrencyPair(Currency base, Currency quote) {
         var base = Currency.getInstance(baseCode);
         var quote = Currency.getInstance(quoteCode);
         return new CurrencyPair(base, quote);
+    }
+
+    // null --> NPE
+    // length != 6 --> IAE
+    //
+    public static CurrencyPair parse(String s) {
     }
 
     // TODO: parse() static factory method for values created by toString() (for symmetry)
