@@ -37,6 +37,7 @@
     <properties>
         <java.version>25</java.version>
         <jspecify.version>1.0.0</jspecify.version>
+        <jackson.version>3.0.4</jackson.version>
         <junit.version>6.0.0</junit.version>
         <equalsverifier.version>4.2</equalsverifier.version>
         <assertj.version>3.27.3</assertj.version>
@@ -52,6 +53,11 @@
             <artifactId>jspecify</artifactId>
             <version>${jspecify.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>tools.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
